@@ -9,6 +9,7 @@ type FormState = {
   phone: string;
   email: string;
   message: string;
+  website: string;
 };
 
 const initialState: FormState = {
@@ -16,47 +17,86 @@ const initialState: FormState = {
   phone: "",
   email: "",
   message: "",
+  website: "",
 };
 
 export function ContactForm() {
   const [values, setValues] = useState<FormState>(initialState);
   const [feedback, setFeedback] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function updateField<Key extends keyof FormState>(key: Key, value: FormState[Key]) {
     setValues((current) => ({ ...current, [key]: value }));
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (!values.name || !values.phone || !values.email || !values.message) {
+      setIsError(true);
       setFeedback("Please fill out all fields before submitting your quote request.");
       return;
     }
 
-    const subject = encodeURIComponent(`Quote Request from ${values.name}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${values.name}`,
-        `Phone: ${values.phone}`,
-        `Email: ${values.email}`,
-        "",
-        "Project details:",
-        values.message,
-      ].join("\n"),
-    );
+    setIsSubmitting(true);
+    setIsError(false);
+    setFeedback("");
 
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setFeedback("Your email app should open with the quote request details pre-filled.");
-    setValues(initialState);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const payload = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(
+          payload.message ??
+            "We could not send your request online. Please call or text for the fastest response.",
+        );
+      }
+
+      setFeedback(
+        payload.message ??
+          `Thanks. Your quote request was sent to ${site.name} and someone should follow up shortly.`,
+      );
+      setValues(initialState);
+    } catch (error) {
+      setIsError(true);
+      setFeedback(
+        error instanceof Error
+          ? error.message
+          : "We could not send your request online. Please call or text for the fastest response.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
     <form
       onSubmit={handleSubmit}
+      aria-busy={isSubmitting}
       className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/70 sm:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
+        <label className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+          Website
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={values.website}
+            onChange={(event) => updateField("website", event.target.value)}
+          />
+        </label>
         <label className="grid gap-2 text-sm font-medium text-slate-700">
           Name
           <input
@@ -109,12 +149,16 @@ export function ContactForm() {
       </div>
       <button
         type="submit"
-        className="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+        disabled={isSubmitting}
+        className="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-400"
       >
-        Send Quote Request
+        {isSubmitting ? "Sending Request..." : "Send Quote Request"}
       </button>
       {feedback ? (
-        <p aria-live="polite" className="mt-4 text-sm text-slate-600">
+        <p
+          aria-live="polite"
+          className={`mt-4 text-sm ${isError ? "text-red-700" : "text-slate-600"}`}
+        >
           {feedback}
         </p>
       ) : null}
