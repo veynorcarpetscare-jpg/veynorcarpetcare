@@ -6,9 +6,6 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <SiteLink href="/" className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
-            Local Carpet & Upholstery Care
-          </p>
           <p className="max-w-[15rem] text-base leading-tight font-semibold tracking-tight text-slate-950 sm:max-w-none sm:text-xl">
             {site.name}
           </p>
