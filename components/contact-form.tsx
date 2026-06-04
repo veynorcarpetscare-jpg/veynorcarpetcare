@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import { site } from "@/lib/site";
 
+const formEndpoint = "https://formsubmit.co/ajax/5ead94b53945a986f6efd390f8b01086";
+
 type FormState = {
   name: string;
   phone: string;
@@ -44,26 +46,36 @@ export function ContactForm() {
     setFeedback("");
 
     try {
-      const response = await fetch("/api/contact", {
+      const payload = new FormData();
+      payload.set("name", values.name);
+      payload.set("phone", values.phone);
+      payload.set("email", values.email);
+      payload.set("message", values.message);
+      payload.set("_subject", `VEYNOR Quote Request from ${values.name}`);
+      payload.set("_replyto", values.email);
+      payload.set("_template", "table");
+      payload.set("_captcha", "false");
+      payload.set("_honey", values.website);
+
+      const response = await fetch(formEndpoint, {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: payload,
       });
 
-      const payload = (await response.json()) as { message?: string };
+      const responsePayload = (await response.json()) as { message?: string; success?: string };
 
       if (!response.ok) {
         throw new Error(
-          payload.message ??
+          responsePayload.message ??
             "We could not send your request online. Please call or text for the fastest response.",
         );
       }
 
       setFeedback(
-        payload.message ??
+        responsePayload.message ??
           `Thanks. Your quote request was sent to ${site.name} and someone should follow up shortly.`,
       );
       setValues(initialState);

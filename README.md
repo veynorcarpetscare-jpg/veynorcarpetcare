@@ -175,7 +175,7 @@ Keep the same file names for a quick swap, or update the file paths in `lib/data
 
 ## Contact Form Behavior
 
-The contact form submits to a Cloudflare Pages Function at `/api/contact`, which forwards the request to the configured email delivery endpoint without opening the visitor's mail app.
+The contact form submits with AJAX to the activated FormSubmit endpoint, which forwards the request without opening the visitor's mail app.
 
 Primary conversion paths remain:
 
