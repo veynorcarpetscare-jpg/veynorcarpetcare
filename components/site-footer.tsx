@@ -13,15 +13,15 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.3fr_1fr_1fr] lg:px-8">
         <div className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-300">
-            Walnut Creek & East Bay Carpet Cleaning
+            Local Carpet & Upholstery Care
           </p>
           <h2 className="text-2xl font-semibold tracking-tight text-white">
             {site.name}
           </h2>
           <p className="max-w-xl text-base leading-7 text-slate-300">
             Professional carpet cleaning, upholstery cleaning, pet stain removal,
-            and odor treatment for homes and businesses across Contra Costa County
-            and the inner East Bay.
+            and odor treatment for homes and businesses across the local service
+            area.
           </p>
           <div className="space-y-2 text-sm text-slate-300">
             <p>

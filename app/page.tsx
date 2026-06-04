@@ -44,16 +44,16 @@ export default function Home() {
             <div className="absolute bottom-0 left-24 h-48 w-48 rounded-full bg-sky-300/10 blur-3xl" />
             <div className="relative">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">
-                Walnut Creek & East Bay Carpet Cleaning
+                Professional Carpet & Upholstery Care
               </p>
               <h1 className="mt-6 max-w-3xl text-5xl font-semibold tracking-tight sm:text-6xl">
-                Carpet and upholstery cleaning for Walnut Creek homes that need a real reset.
+                Carpet and upholstery cleaning for homes that need a real reset.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                 VEYNOR Carpet & Upholstery Care provides carpet cleaning, deep
                 carpet cleaning, upholstery cleaning, pet stain removal, pet odor
-                treatment, area rug cleaning, and commercial carpet cleaning across
-                Contra Costa County and the inner East Bay.
+                treatment, area rug cleaning, and commercial carpet cleaning for
+                homes and businesses across the local service area.
               </p>
               <div className="mt-8">
                 <CallToActionGroup invert />
@@ -62,7 +62,7 @@ export default function Home() {
                 {[
                   "Fast phone and SMS quotes",
                   "Pet-focused stain and odor treatment",
-                  "Service from Walnut Creek to Oakland",
+                  "Residential and commercial service",
                 ].map((item) => (
                   <div
                     key={item}
@@ -91,7 +91,7 @@ export default function Home() {
                 },
                 {
                   title: "Strong local coverage",
-                  body: "Headquartered in Concord and focused on Walnut Creek, Pleasant Hill, Lafayette, Danville, San Ramon, Oakland, Berkeley, Richmond, and surrounding East Bay cities.",
+                  body: "Headquartered in Concord and scheduled throughout nearby communities, with practical coverage for homes and businesses across the region.",
                 },
               ].map((item) => (
                 <div
@@ -122,7 +122,7 @@ export default function Home() {
           {[
             {
               title: "Local SEO-friendly service structure",
-              body: "City landing pages, internal linking, schema markup, and page metadata all reinforce local relevance around Walnut Creek and the East Bay.",
+              body: "City landing pages, internal linking, schema markup, and page metadata all reinforce local relevance across the service area.",
             },
             {
               title: "Phone-first conversion flow",
@@ -151,7 +151,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Why Choose VEYNOR"
             title="A cleaner finish, quick communication, and local coverage that makes sense."
-            description="VEYNOR is built around practical service for East Bay homes and businesses. That means clear scheduling, honest scope recommendations, and a strong focus on the rooms that actually bother you."
+            description="VEYNOR is built around practical service for local homes and businesses. That means clear scheduling, honest scope recommendations, and a strong focus on the rooms that actually bother you."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {[
@@ -168,8 +168,8 @@ export default function Home() {
                 body: "From family rooms and sectionals to office suites and waiting areas, the service mix stays practical.",
               },
               {
-                title: "Wide East Bay reach",
-                body: "Walnut Creek, Concord, Danville, San Ramon, Oakland, Berkeley, Richmond, and the surrounding cities are all covered.",
+                title: "Broad local coverage",
+                body: "From nearby residential neighborhoods to busy commercial corridors, VEYNOR covers a wide service area without feeling like a franchise dispatch line.",
               },
             ].map((item) => (
               <div
@@ -253,7 +253,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Customer Reviews"
-            title="Clear, concise feedback from East Bay customers."
+            title="Clear, concise feedback from local customers."
             description="Review cards are stored separately so the site can be updated quickly as new verified customer feedback is collected."
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -276,7 +276,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Service Areas"
-            title="Focused on Walnut Creek, backed by coverage across the East Bay."
+            title="Local coverage without the franchise feel."
             description="Dedicated city pages help the site rank locally while the broader service area directory makes it clear that VEYNOR covers a much wider footprint."
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">

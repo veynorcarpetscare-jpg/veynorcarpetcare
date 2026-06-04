@@ -7,7 +7,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <SiteLink href="/" className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
-            Walnut Creek & East Bay
+            Local Carpet & Upholstery Care
           </p>
           <p className="max-w-[15rem] text-base leading-tight font-semibold tracking-tight text-slate-950 sm:max-w-none sm:text-xl">
             {site.name}
