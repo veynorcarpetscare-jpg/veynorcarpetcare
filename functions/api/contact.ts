@@ -76,6 +76,7 @@ async function sendWithFormSubmit(
   endpoint: string,
   request: Request,
 ) {
+  const requestUrl = new URL(request.url);
   const payload = new FormData();
   payload.set("name", submission.name);
   payload.set("phone", submission.phone);
@@ -92,6 +93,8 @@ async function sendWithFormSubmit(
     method: "POST",
     headers: {
       Accept: "application/json",
+      Origin: requestUrl.origin,
+      Referer: request.url,
     },
     body: payload,
   });
