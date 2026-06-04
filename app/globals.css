@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-public-sans);
+  --font-display: var(--font-sora);
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-public-sans), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sora), sans-serif;
+}
+
+::selection {
+  background: #0ea5e9;
+  color: #ffffff;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
