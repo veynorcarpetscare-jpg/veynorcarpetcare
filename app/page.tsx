@@ -230,8 +230,8 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Before & After Gallery"
-            title="A gallery system ready for real project photography."
-            description="Each gallery card supports a before-and-after layout so the website can showcase carpet restoration, upholstery cleaning, pet issue work, and commercial maintenance visually."
+            title="Recent before-and-after work from real cleaning jobs."
+            description="The gallery now shows actual upholstery and carpet projects, including multi-photo before-and-after sets when one job needs more than a single angle to tell the story clearly."
           />
           <div className="mt-10 grid gap-8">
             {featuredProjects.map((project) => (

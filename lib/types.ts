@@ -33,16 +33,19 @@ export type FAQItem = {
   answer: string;
 };
 
+export type GalleryImage = {
+  src: string;
+  alt: string;
+};
+
 export type GalleryProject = {
   id: string;
   title: string;
   city: string;
   result: string;
   description: string;
-  beforeImage: string;
-  afterImage: string;
-  beforeAlt: string;
-  afterAlt: string;
+  beforeImages: GalleryImage[];
+  afterImages: GalleryImage[];
 };
 
 export type BreadcrumbItem = {

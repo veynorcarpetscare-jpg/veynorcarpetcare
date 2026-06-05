@@ -7,7 +7,7 @@ import { createMetadata } from "@/lib/site";
 export const metadata = createMetadata({
   title: "Before and After Gallery",
   description:
-    "Explore the VEYNOR before-and-after gallery layout for carpet cleaning, upholstery cleaning, pet stain removal, and commercial carpet maintenance projects.",
+    "Explore recent VEYNOR before-and-after carpet and upholstery cleaning projects, including real sectional cleaning and spot treatment results.",
   path: "/gallery",
 });
 
@@ -20,8 +20,8 @@ export default function GalleryPage() {
           { name: "Gallery", href: "/gallery" },
         ]}
         eyebrow="Gallery"
-        title="A before-and-after gallery system built for real cleaning results."
-        description="The gallery supports side-by-side before and after presentation for carpet, upholstery, pet issue, rug, and commercial projects so the site can grow with real job photography over time."
+        title="Real before-and-after results from carpet and upholstery cleaning jobs."
+        description="This gallery highlights recent VEYNOR work with side-by-side before and after presentation, including multi-photo project sets when a single room or sectional needs more than one angle."
       />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">

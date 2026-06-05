@@ -2,75 +2,79 @@ import type { GalleryProject } from "@/lib/types";
 
 export const galleryProjects: GalleryProject[] = [
   {
-    id: "walnut-creek-family-room",
-    title: "Family Room Traffic Lane Reset",
-    city: "Walnut Creek",
-    result: "Lifted heavy walkway soil and brightened the room for everyday use.",
+    id: "east-bay-sectional-restoration",
+    title: "Sectional Upholstery Deep Cleaning",
+    city: "East Bay Home",
+    result: "Visible staining lifted across the sectional.",
     description:
-      "A common East Bay job: high-traffic carpet through the center of the room, a few pet spots near the seating area, and a finish that needed to look cleaner without feeling damp for hours.",
-    beforeImage: "/gallery/walnut-creek-family-room-before.svg",
-    afterImage: "/gallery/walnut-creek-family-room-after.svg",
-    beforeAlt: "Before carpet cleaning placeholder for a Walnut Creek family room",
-    afterAlt: "After carpet cleaning placeholder for a Walnut Creek family room",
+      "This sectional had dark body-oil buildup, food and drink spotting, and uneven wear across the main seating areas. The finished result shows a cleaner, more even surface from multiple angles.",
+    beforeImages: [
+      {
+        src: "/gallery/sectional-living-room-before-1.jpg",
+        alt: "Before upholstery cleaning on a brown sectional seat with visible dark staining",
+      },
+      {
+        src: "/gallery/sectional-living-room-before-2.jpg",
+        alt: "Before upholstery cleaning showing dark rings and staining across a sectional cushion",
+      },
+      {
+        src: "/gallery/sectional-living-room-before-3.jpg",
+        alt: "Before upholstery cleaning on a sectional chaise with heavy visible staining",
+      },
+    ],
+    afterImages: [
+      {
+        src: "/gallery/sectional-living-room-after-1.jpg",
+        alt: "After upholstery cleaning showing a cleaner sectional from a wide room angle",
+      },
+      {
+        src: "/gallery/sectional-living-room-after-2.jpg",
+        alt: "After upholstery cleaning showing the main sectional seat area cleaned and brightened",
+      },
+      {
+        src: "/gallery/sectional-living-room-after-3.jpg",
+        alt: "After upholstery cleaning showing the sectional corner and chaise restored",
+      },
+    ],
   },
   {
-    id: "concord-stairs",
-    title: "Stair Carpet Refresh",
-    city: "Concord",
-    result: "Improved appearance on the step edges and center wear pattern.",
+    id: "east-bay-hall-carpet",
+    title: "Hall Carpet Traffic and Edge Cleanup",
+    city: "East Bay Home",
+    result: "Traffic dullness and corner darkening reduced.",
     description:
-      "Stairs are one of the first places carpet starts to show buildup. This project represents the kind of focused edge and traffic-lane work that makes the whole entry feel cleaner.",
-    beforeImage: "/gallery/concord-stairs-before.svg",
-    afterImage: "/gallery/concord-stairs-after.svg",
-    beforeAlt: "Before carpet cleaning placeholder for Concord stair carpet",
-    afterAlt: "After carpet cleaning placeholder for Concord stair carpet",
+      "This carpet detail shows a common problem area near a doorway and wall edge where soil builds up faster than the rest of the room. The after photo gives the space a brighter, more maintained look.",
+    beforeImages: [
+      {
+        src: "/gallery/hall-carpet-before.jpg",
+        alt: "Before carpet cleaning in a hallway corner with visible dark traffic and edge soil",
+      },
+    ],
+    afterImages: [
+      {
+        src: "/gallery/hall-carpet-after.jpg",
+        alt: "After carpet cleaning in a hallway corner with the traffic area visibly improved",
+      },
+    ],
   },
   {
-    id: "oakland-sectional",
-    title: "Sectional Upholstery Cleanup",
-    city: "Oakland",
-    result: "Removed surface grime and freshened a heavily used seating area.",
+    id: "east-bay-sofa-base-detail",
+    title: "Sofa Base Detail Spot Removal",
+    city: "East Bay Home",
+    result: "Lower upholstery panel cleaned and brightened.",
     description:
-      "A practical upholstery job with hand and arm-rest buildup, general dullness, and a few spots from normal daily use.",
-    beforeImage: "/gallery/oakland-sectional-before.svg",
-    afterImage: "/gallery/oakland-sectional-after.svg",
-    beforeAlt: "Before upholstery cleaning placeholder for an Oakland sectional",
-    afterAlt: "After upholstery cleaning placeholder for an Oakland sectional",
-  },
-  {
-    id: "berkeley-rug",
-    title: "Area Rug Spot Treatment",
-    city: "Berkeley",
-    result: "Improved color, reduced visible spots, and left the rug looking more even.",
-    description:
-      "A dining-area rug that needed spot treatment and a full refresh after repeated use and tracked-in soil.",
-    beforeImage: "/gallery/berkeley-rug-before.svg",
-    afterImage: "/gallery/berkeley-rug-after.svg",
-    beforeAlt: "Before area rug cleaning placeholder for Berkeley home",
-    afterAlt: "After area rug cleaning placeholder for Berkeley home",
-  },
-  {
-    id: "san-ramon-office",
-    title: "Office Carpet Maintenance",
-    city: "San Ramon",
-    result: "Restored a more professional look in a client-facing workspace.",
-    description:
-      "Representative commercial maintenance for a suite with concentrated wear from desk chairs, walkways, and entry traffic.",
-    beforeImage: "/gallery/san-ramon-office-before.svg",
-    afterImage: "/gallery/san-ramon-office-after.svg",
-    beforeAlt: "Before commercial carpet cleaning placeholder for a San Ramon office",
-    afterAlt: "After commercial carpet cleaning placeholder for a San Ramon office",
-  },
-  {
-    id: "martinez-pet-room",
-    title: "Pet Spot and Odor Service",
-    city: "Martinez",
-    result: "Targeted visible spots and improved freshness in one problem room.",
-    description:
-      "A pet-related service example where stain treatment and odor work were handled together to improve both appearance and smell.",
-    beforeImage: "/gallery/martinez-pet-room-before.svg",
-    afterImage: "/gallery/martinez-pet-room-after.svg",
-    beforeAlt: "Before pet stain removal placeholder for Martinez home",
-    afterAlt: "After pet stain removal placeholder for Martinez home",
+      "A smaller upholstery detail can still stand out to the customer when it sits at eye level every day. This close-up pair shows targeted treatment on a darker lower sofa panel.",
+    beforeImages: [
+      {
+        src: "/gallery/sofa-base-before.jpg",
+        alt: "Before upholstery cleaning on a light sofa base with a dark visible stain",
+      },
+    ],
+    afterImages: [
+      {
+        src: "/gallery/sofa-base-after.jpg",
+        alt: "After upholstery cleaning on a light sofa base with the dark stain removed",
+      },
+    ],
   },
 ];
