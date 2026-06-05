@@ -26,7 +26,7 @@ export default function ServiceAreasPage() {
         ]}
         eyebrow="Service Areas"
         title="Search every city VEYNOR serves across Contra Costa County and the East Bay."
-        description="The directory below includes the full service footprint. Dedicated local SEO pages are linked for priority cities, and the broader city list makes coverage clear for both visitors and search engines."
+        description="Browse featured cities below or search the full service area directory to see whether VEYNOR serves your home or business."
       />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
@@ -38,7 +38,7 @@ export default function ServiceAreasPage() {
                 className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/70"
               >
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-700">
-                  Featured local page
+                  Popular service area
                 </p>
                 <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
                   {area.name}

@@ -121,16 +121,16 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
           {[
             {
-              title: "Local SEO-friendly service structure",
-              body: "City landing pages, internal linking, schema markup, and page metadata all reinforce local relevance across the service area.",
+              title: "Easy to book in your city",
+              body: "Whether you are in Walnut Creek, Concord, Oakland, or a nearby East Bay community, it is easy to check coverage and get in touch fast.",
             },
             {
-              title: "Phone-first conversion flow",
-              body: "Every major section points back to a call or SMS quote request so visitors can act without hunting for contact info.",
+              title: "Quick quotes by call or text",
+              body: "The phone number stays easy to find throughout the site so you can call or text for pricing without digging around.",
             },
             {
-              title: "Professional without feeling generic",
-              body: "The layout stays clean and trustworthy while still feeling like a focused local service brand, not a recycled national franchise template.",
+              title: "Clear and straightforward",
+              body: "The site keeps the focus on real cleaning work, honest communication, and practical service for local homes and businesses.",
             },
           ].map((item) => (
             <article
@@ -169,7 +169,7 @@ export default function Home() {
               },
               {
                 title: "Broad local coverage",
-                body: "From nearby residential neighborhoods to busy commercial corridors, VEYNOR covers a wide service area without feeling like a franchise dispatch line.",
+                body: "From nearby neighborhoods to busy commercial corridors, VEYNOR covers a wide East Bay service area and keeps scheduling straightforward.",
               },
             ].map((item) => (
               <div
@@ -254,7 +254,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Customer Reviews"
             title="Clear, concise feedback from local customers."
-            description="Review cards are stored separately so the site can be updated quickly as new verified customer feedback is collected."
+            description="Read what local customers say about the communication, cleaning results, and overall experience."
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {featuredReviews.map((review) => (
@@ -276,8 +276,8 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Service Areas"
-            title="Local coverage without the franchise feel."
-            description="Dedicated city pages help the site rank locally while the broader service area directory makes it clear that VEYNOR covers a much wider footprint."
+            title="Coverage across the East Bay."
+            description="Check featured cities below or browse the full service area directory to see whether VEYNOR serves your location."
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {featuredAreas.map((area) => (

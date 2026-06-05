@@ -19,7 +19,7 @@ export default function AboutPage() {
         ]}
         eyebrow="About VEYNOR"
         title="A local carpet cleaning company built around clear communication and practical results."
-        description="VEYNOR Carpet & Upholstery Care is positioned as a responsive East Bay service business: easy to reach, honest about scope, and focused on the rooms, rugs, and furniture that customers actually care about most."
+        description="VEYNOR Carpet & Upholstery Care is a responsive East Bay service business that is easy to reach, clear about scope, and focused on the rooms, rugs, and furniture customers care about most."
       />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
@@ -36,16 +36,15 @@ export default function AboutPage() {
                 cleaning, and move-related service.
               </p>
               <p>
-                The brand direction is local, responsive, and straightforward. Visitors
-                are pushed toward simple actions that produce leads quickly: call now,
-                text for a free quote, or send the scope through the contact form if email
-                is more convenient.
+                The company aims to stay local, responsive, and straightforward. You can
+                call, text for a free quote, or send the job details through the contact
+                form if email is more convenient.
               </p>
               <p>
                 Walnut Creek is the primary market, with headquarters listed in Concord and
-                a service area that extends across the East Bay. That regional coverage is
-                reflected throughout the site with city landing pages, local service copy,
-                and a searchable service-area directory.
+                a service area that extends across the East Bay. Customers can quickly check
+                city coverage, review services, and reach out with the rooms or furniture
+                they need cleaned.
               </p>
             </div>
           </article>
@@ -53,16 +52,16 @@ export default function AboutPage() {
           <div className="grid gap-6">
             {[
               {
-                title: "Clear lead generation focus",
-                body: "The site is built to produce phone calls and SMS quote requests first, then support that with email as a secondary path.",
+                title: "Easy to reach",
+                body: "Customers can call, text, or send the project details online, whichever feels fastest and easiest.",
               },
               {
-                title: "Trust without corporate stiffness",
-                body: "The visual system stays clean and reliable while avoiding both a luxury showroom feel and a bland enterprise template look.",
+                title: "Clean and professional",
+                body: "The company presents itself clearly and professionally without feeling over-polished or impersonal.",
               },
               {
-                title: "Search-ready local structure",
-                body: "Dedicated city pages, schema, internal links, metadata, robots, and sitemap coverage all support local SEO out of the box.",
+                title: "Helpful local coverage",
+                body: "City-specific pages and the full service area directory make it easy to see where VEYNOR works across the East Bay.",
               },
             ].map((item) => (
               <article
@@ -81,7 +80,7 @@ export default function AboutPage() {
 
       <CtaPanel
         title="Need help with carpet, upholstery, rugs, or pet issues?"
-        description="VEYNOR is positioned for fast quote conversations and clear next steps. Call or text with the city, the rooms involved, and the problem areas."
+        description="Call or text with your city, the rooms involved, and the problem areas for a fast quote and clear next steps."
       />
     </>
   );

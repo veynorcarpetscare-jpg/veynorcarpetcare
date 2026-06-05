@@ -24,8 +24,8 @@ export default function ReviewsPage() {
           { name: "Reviews", href: "/reviews" },
         ]}
         eyebrow="Reviews"
-        title="Review cards that can be updated quickly as new feedback comes in."
-        description="The reviews are stored separately from the page layout so testimonials can be refreshed without rebuilding the design system. That keeps this page easy to maintain as the business grows."
+        title="Feedback from local customers."
+        description="Read what customers say about communication, cleaning results, and the overall service experience with VEYNOR."
       />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
@@ -38,7 +38,7 @@ export default function ReviewsPage() {
 
       <CtaPanel
         title="Need a cleaner home or office without wasting time?"
-        description="Use the same fast-response call and text flow the site is built to prioritize, and send the scope of the job when you are ready."
+        description="Call or text for a fast quote, or send the details of the job when you are ready."
       />
     </>
   );
