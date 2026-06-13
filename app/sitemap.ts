@@ -9,10 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/services",
+    "/services/carpet-cleaning",
+    "/services/upholstery-cleaning",
     "/about",
     "/service-areas",
     "/gallery",
     "/reviews",
+    "/referral-program",
     "/faq",
     "/contact",
   ];

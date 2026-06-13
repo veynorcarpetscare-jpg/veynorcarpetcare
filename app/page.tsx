@@ -29,7 +29,7 @@ const featuredAreas = serviceAreas.filter((area) =>
 );
 const featuredProjects = galleryProjects.slice(0, 3);
 const featuredReviews = reviews.slice(0, 3);
-const homeFaqs = generalFaqs.slice(0, 5);
+const homeFaqs = generalFaqs.slice(0, 8);
 
 export default function Home() {
   return (
@@ -215,7 +215,13 @@ export default function Home() {
                   ))}
                 </ul>
                 <SiteLink
-                  href={`/services#${service.id}`}
+                  href={
+                    service.id === "carpet-cleaning"
+                      ? "/services/carpet-cleaning"
+                      : service.id === "upholstery-cleaning"
+                        ? "/services/upholstery-cleaning"
+                        : `/services#${service.id}`
+                  }
                   className="mt-6 inline-flex items-center text-sm font-semibold text-sky-700 hover:text-sky-800"
                 >
                   View service details

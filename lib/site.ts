@@ -17,6 +17,11 @@ export const site = {
     "Carpet cleaning, upholstery cleaning, pet stain removal, and odor treatment for Walnut Creek, Concord, and East Bay homes and businesses.",
 };
 
+export const serviceMenuLinks: NavLink[] = [
+  { href: "/services/carpet-cleaning", label: "Carpet Cleaning" },
+  { href: "/services/upholstery-cleaning", label: "Upholstery Cleaning" },
+];
+
 export const navLinks: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
@@ -24,6 +29,7 @@ export const navLinks: NavLink[] = [
   { href: "/service-areas", label: "Service Areas" },
   { href: "/gallery", label: "Gallery" },
   { href: "/reviews", label: "Reviews" },
+  { href: "/referral-program", label: "Referral Program" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];

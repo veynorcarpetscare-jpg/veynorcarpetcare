@@ -1,7 +1,7 @@
 import { SiteLink } from "@/components/site-link";
 import { featuredAreaNames, serviceAreas } from "@/lib/data/service-areas";
 import { services } from "@/lib/data/services";
-import { navLinks, site } from "@/lib/site";
+import { navLinks, serviceMenuLinks, site } from "@/lib/site";
 
 export function SiteFooter() {
   const featuredAreas = serviceAreas.filter((area) =>
@@ -47,6 +47,16 @@ export function SiteFooter() {
               <li key={link.href}>
                 <SiteLink href={link.href} className="hover:text-white">
                   {link.label}
+                </SiteLink>
+              </li>
+            ))}
+          </ul>
+          <h3 className="mt-8 text-lg font-semibold text-white">Quote Builders</h3>
+          <ul className="mt-4 grid gap-3 text-sm">
+            {serviceMenuLinks.map((service) => (
+              <li key={service.href}>
+                <SiteLink href={service.href} className="hover:text-white">
+                  {service.label}
                 </SiteLink>
               </li>
             ))}

@@ -1,5 +1,6 @@
 import { CtaPanel } from "@/components/cta-panel";
 import { PageHero } from "@/components/page-hero";
+import { SiteLink } from "@/components/site-link";
 import { createMetadata } from "@/lib/site";
 import { services } from "@/lib/data/services";
 
@@ -19,12 +20,46 @@ export default function ServicesPage() {
           { name: "Services", href: "/services" },
         ]}
         eyebrow="Services"
-        title="Professional cleaning services built for real East Bay homes and businesses."
-        description="Each service is designed around practical outcomes: cleaner-looking carpet, fresher upholstery, better odor control, and scheduling that makes it easy to move forward."
+        title="Choose the service you need and build a quote online."
+        description="Start with carpet cleaning or upholstery cleaning if you want to select rooms, furniture pieces, and pricing online. The full service overview is still listed below."
       />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl space-y-8">
+        <div className="mx-auto max-w-7xl space-y-10">
+          <div className="grid gap-6 lg:grid-cols-2">
+            {[
+              {
+                title: "Carpet Cleaning",
+                body: "Choose room packages, stairs, landings, hallway areas, and request deep cleaning when the carpet needs more than a routine refresh.",
+                href: "/services/carpet-cleaning",
+              },
+              {
+                title: "Upholstery Cleaning",
+                body: "Add sofas, sectionals, chairs, ottomans, and mattresses to a quote builder with the current price list and send the request directly online.",
+                href: "/services/upholstery-cleaning",
+              },
+            ].map((item) => (
+              <article
+                key={item.href}
+                className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm shadow-slate-200/70 sm:p-10"
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">
+                  Online Quote Builder
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950">
+                  {item.title}
+                </h2>
+                <p className="mt-4 text-base leading-8 text-slate-600">{item.body}</p>
+                <SiteLink
+                  href={item.href}
+                  className="mt-6 inline-flex items-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                >
+                  Open {item.title}
+                </SiteLink>
+              </article>
+            ))}
+          </div>
+
           {services.map((service, index) => (
             <article
               key={service.id}

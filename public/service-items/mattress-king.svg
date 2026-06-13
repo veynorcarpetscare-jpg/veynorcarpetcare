@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title>Mattress - King</title>
+  <desc>Illustration of a mattress - king for upholstery cleaning pricing.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="40" fill="url(#bg)"/>
+  <circle cx="650" cy="120" r="84" fill="#dbeafe"/>
+  <circle cx="164" cy="150" r="54" fill="#eff6ff"/>
+  <rect x="0" y="470" width="800" height="130" fill="#d4dce8"/>
+  <rect x="44" y="40" width="190" height="44" rx="22" fill="#ffffff" opacity="0.96"/>
+  <text x="139" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#0369a1">KING</text>
+
+  <rect x="180" y="188" width="440" height="220" rx="36" fill="#ffffff" stroke="#cbd5e1" stroke-width="8"/>
+  <rect x="180" y="188" width="440" height="58" rx="36" fill="#e0f2fe"/>
+  <rect x="198" y="218" width="404" height="154" rx="28" fill="#f8fafc"/>
+  <line x1="400" y1="246" x2="400" y2="372" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8 10"/>
+  <rect x="204" y="400" width="392" height="18" rx="9" fill="#94a3b8" opacity="0.8"/>
+
+  <text x="400" y="536" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Mattress - King</text>
+  <text x="400" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="600" fill="#0369a1">$99</text>
+</svg>
