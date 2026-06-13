@@ -37,8 +37,8 @@ export default function UpholsteryCleaningPage() {
           { name: "Upholstery Cleaning", href: "/services/upholstery-cleaning" },
         ]}
         eyebrow="Upholstery Cleaning"
-        title="Choose your furniture pieces and send an upholstery cleaning request online."
-        description="Build a quote for sofas, sectionals, chairs, ottomans, and mattresses. If you are unsure about your sectional size, you can still submit the form and follow up by text with a photo."
+        title="Choose your furniture pieces, build a cart, and send an upholstery cleaning request online."
+        description="Add sofas, sectionals, chairs, ottomans, and mattresses to your cart. If you are unsure about your sectional size, you can still submit the form and follow up by text with a photo."
       />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
@@ -48,6 +48,9 @@ export default function UpholsteryCleaningPage() {
               <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
                 Standard upholstery pricing
               </h2>
+              <p className="mt-3 text-sm leading-6 text-slate-500">
+                Use the cart on the right to add any chair, loveseat, sofa, or ottoman.
+              </p>
               <div className="mt-5 grid gap-3">
                 {chairItems.map((item) => (
                   <div
@@ -65,6 +68,9 @@ export default function UpholsteryCleaningPage() {
               <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
                 Sectionals and larger pieces
               </h2>
+              <p className="mt-3 text-sm leading-6 text-slate-500">
+                Add the sectional size that matches your piece, then include notes if anything needs a closer review.
+              </p>
               <div className="mt-5 grid gap-3">
                 {sectionalItems.map((item) => (
                   <div
@@ -87,6 +93,9 @@ export default function UpholsteryCleaningPage() {
               <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
                 Mattress cleaning
               </h2>
+              <p className="mt-3 text-sm leading-6 text-slate-500">
+                Mattresses can be added to the same cart before you send the form.
+              </p>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {mattressItems.map((item) => (
                   <div

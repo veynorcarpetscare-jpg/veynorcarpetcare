@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-import { QuantityStepper } from "@/components/quantity-stepper";
 import {
   carpetExtraItems,
   carpetRoomPackages,
@@ -90,6 +89,24 @@ export function CarpetQuoteBuilder() {
     value: CarpetQuoteState[Key],
   ) {
     setValues((current) => ({ ...current, [key]: value }));
+  }
+
+  function updateExtraQuantity(
+    key: "stairs" | "landings" | "hallways",
+    nextValue: number,
+  ) {
+    updateField(key, Math.max(0, nextValue));
+  }
+
+  function clearCart() {
+    setValues((current) => ({
+      ...current,
+      roomPackageId: "",
+      stairs: 0,
+      landings: 0,
+      hallways: 0,
+      deepCleaningRequested: false,
+    }));
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -182,7 +199,7 @@ export function CarpetQuoteBuilder() {
         <div>
           <div className="flex items-center justify-between gap-3">
             <h3 className="text-lg font-semibold text-slate-950">Room packages</h3>
-            <p className="text-sm text-slate-500">Tap one option</p>
+            <p className="text-sm text-slate-500">Tap to add one package to cart</p>
           </div>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {carpetRoomPackages.map((item) => {
@@ -207,7 +224,18 @@ export function CarpetQuoteBuilder() {
                   <h4 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
                     {item.label}
                   </h4>
-                  <p className="mt-2 text-lg font-semibold text-slate-700">${item.price}</p>
+                  <div className="mt-3 flex items-center justify-between gap-3">
+                    <p className="text-lg font-semibold text-slate-700">${item.price}</p>
+                    <span
+                      className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] ${
+                        isSelected
+                          ? "bg-sky-700 text-white"
+                          : "bg-slate-200 text-slate-700"
+                      }`}
+                    >
+                      {isSelected ? "Added" : "Add to Cart"}
+                    </span>
+                  </div>
                 </button>
               );
             })}
@@ -221,59 +249,150 @@ export function CarpetQuoteBuilder() {
               Add only the extras you need beyond the main room package.
             </p>
           </div>
-          <QuantityStepper
-            label={`Stair Steps - $${stairsPrice} each`}
-            value={values.stairs}
-            onChange={(value) => updateField("stairs", value)}
-            max={40}
-          />
-          <QuantityStepper
-            label={`Landings - $${landingPrice} each`}
-            value={values.landings}
-            onChange={(value) => updateField("landings", value)}
-            max={10}
-          />
-          <QuantityStepper
-            label={`Hallway / Walk-In Closet - $${hallwayPrice} each`}
-            value={values.hallways}
-            onChange={(value) => updateField("hallways", value)}
-            max={10}
-          />
+          <div className="grid gap-4">
+            <div className="flex items-center justify-between gap-4 rounded-[1.6rem] border border-slate-200 bg-white px-5 py-4">
+              <div>
+                <p className="text-base font-semibold text-slate-950">Stair Steps</p>
+                <p className="text-sm text-slate-500">${stairsPrice} each</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => updateExtraQuantity("stairs", values.stairs - 1)}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-lg font-semibold text-slate-900 transition hover:bg-slate-50"
+                  aria-label="Remove stair step"
+                >
+                  -
+                </button>
+                <span className="min-w-8 text-center text-base font-semibold text-slate-950">
+                  {values.stairs}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => updateExtraQuantity("stairs", values.stairs + 1)}
+                  className="inline-flex h-10 items-center justify-center rounded-full bg-sky-700 px-4 text-sm font-semibold text-white transition hover:bg-sky-600"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between gap-4 rounded-[1.6rem] border border-slate-200 bg-white px-5 py-4">
+              <div>
+                <p className="text-base font-semibold text-slate-950">Landings</p>
+                <p className="text-sm text-slate-500">${landingPrice} each</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => updateExtraQuantity("landings", values.landings - 1)}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-lg font-semibold text-slate-900 transition hover:bg-slate-50"
+                  aria-label="Remove landing"
+                >
+                  -
+                </button>
+                <span className="min-w-8 text-center text-base font-semibold text-slate-950">
+                  {values.landings}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => updateExtraQuantity("landings", values.landings + 1)}
+                  className="inline-flex h-10 items-center justify-center rounded-full bg-sky-700 px-4 text-sm font-semibold text-white transition hover:bg-sky-600"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+
+            <div className="rounded-[1.6rem] border border-slate-200 bg-white px-5 py-4">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-base font-semibold text-slate-950">
+                    Hallway / Walk-In Closet
+                  </p>
+                  <p className="text-sm text-slate-500">${hallwayPrice} each</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => updateExtraQuantity("hallways", values.hallways - 1)}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-lg font-semibold text-slate-900 transition hover:bg-slate-50"
+                    aria-label="Remove hallway or closet"
+                  >
+                    -
+                  </button>
+                  <span className="min-w-8 text-center text-base font-semibold text-slate-950">
+                    {values.hallways}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => updateExtraQuantity("hallways", values.hallways + 1)}
+                    className="inline-flex h-10 items-center justify-center rounded-full bg-sky-700 px-4 text-sm font-semibold text-white transition hover:bg-sky-600"
+                  >
+                    Add
+                  </button>
+                </div>
+              </div>
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                Carpet hallway up to 10 feet long.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <label className="flex items-start gap-3 rounded-[1.6rem] border border-slate-200 bg-slate-50 p-5">
-          <input
-            type="checkbox"
-            checked={values.deepCleaningRequested}
-            onChange={(event) =>
-              updateField("deepCleaningRequested", event.target.checked)
-            }
-            className="mt-1 h-4 w-4 rounded border-slate-300 text-sky-700 focus:ring-sky-500"
-          />
+        <button
+          type="button"
+          onClick={() =>
+            updateField("deepCleaningRequested", !values.deepCleaningRequested)
+          }
+          className={`flex w-full items-start justify-between gap-4 rounded-[1.6rem] border p-5 text-left transition ${
+            values.deepCleaningRequested
+              ? "border-sky-600 bg-sky-50 shadow-sm shadow-sky-100"
+              : "border-slate-200 bg-slate-50 hover:border-slate-300"
+          }`}
+        >
           <span>
             <span className="block text-base font-semibold text-slate-950">
-              Add deep cleaning request
+              Deep cleaning add-on
             </span>
             <span className="mt-2 block text-sm leading-6 text-slate-600">
               Deep cleaning is quoted at $25-$45 per room or area depending on
-              how heavily soiled the carpet is. This is added when the job needs more
-              than routine maintenance.
+              how heavily soiled the carpet is. Add it when the job needs more
+              than a routine maintenance clean.
             </span>
           </span>
-        </label>
+          <span
+            className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] ${
+              values.deepCleaningRequested
+                ? "bg-sky-700 text-white"
+                : "bg-slate-200 text-slate-700"
+            }`}
+          >
+            {values.deepCleaningRequested ? "Added" : "Add to Cart"}
+          </span>
+        </button>
 
         <div className="rounded-[1.8rem] border border-slate-200 bg-slate-950 p-6 text-white">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h3 className="text-xl font-semibold">Quote summary</h3>
+            <h3 className="text-xl font-semibold">Your cart</h3>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
               Estimated starting total
             </p>
           </div>
+          {hasSelection || values.deepCleaningRequested ? (
+            <button
+              type="button"
+              onClick={clearCart}
+              className="mt-4 inline-flex rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-200 transition hover:bg-white/10"
+            >
+              Clear cart
+            </button>
+          ) : null}
           <div className="mt-5 space-y-3 text-sm leading-6 text-slate-300">
             {summaryLines.length > 0 ? (
               summaryLines.map((line) => <p key={line}>{line}</p>)
             ) : (
-              <p>Choose a room package or area to start your quote.</p>
+              <p>Choose a room package or add extra areas to start your cart.</p>
             )}
           </div>
           <p className="mt-5 text-2xl font-semibold tracking-tight text-white">
@@ -284,6 +403,15 @@ export function CarpetQuoteBuilder() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
+          <div className="sm:col-span-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-700">
+              Your information
+            </p>
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              After your cart is ready, enter your contact info and the full request
+              will be sent to VEYNOR on Gmail.
+            </p>
+          </div>
           <label className="grid gap-2 text-sm font-medium text-slate-700">
             Name
             <input
@@ -358,7 +486,7 @@ export function CarpetQuoteBuilder() {
         </p>
       ) : null}
       <p className="mt-4 text-sm text-slate-500">
-        Prefer a faster answer? Call or text {site.phoneDisplay} with your city and room count.
+        This form sends your cart and contact details directly to {site.email}. For a faster answer, call or text {site.phoneDisplay}.
       </p>
     </form>
   );

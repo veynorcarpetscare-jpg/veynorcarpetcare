@@ -30,7 +30,7 @@ export default function CarpetCleaningPage() {
           { name: "Carpet Cleaning", href: "/services/carpet-cleaning" },
         ]}
         eyebrow="Carpet Cleaning"
-        title="Select your rooms and send a carpet cleaning quote request online."
+        title="Select your rooms, build a cart, and send a carpet cleaning request online."
         description="Choose the room package that fits your home, add stairs or hallway areas if needed, and request deep cleaning when the carpet needs more restorative work."
       />
 
@@ -41,6 +41,9 @@ export default function CarpetCleaningPage() {
               <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
                 Standard room package pricing
               </h2>
+              <p className="mt-3 text-sm leading-6 text-slate-500">
+                Use the cart on the right to add the package you want.
+              </p>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {carpetRoomPackages.map((item) => (
                   <div
@@ -58,6 +61,9 @@ export default function CarpetCleaningPage() {
               <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
                 Extra areas
               </h2>
+              <p className="mt-3 text-sm leading-6 text-slate-500">
+                Add steps, landings, or hallway areas to the same cart before sending the request.
+              </p>
               <div className="mt-5 grid gap-3">
                 {carpetExtraItems.map((item) => (
                   <div

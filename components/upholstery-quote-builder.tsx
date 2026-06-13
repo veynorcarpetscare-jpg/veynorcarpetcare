@@ -80,11 +80,22 @@ export function UpholsteryQuoteBuilder() {
     }));
   }
 
+  function addToCart(id: string) {
+    updateQuantity(id, values.quantities[id] + 1);
+  }
+
   function updateField<Key extends keyof Omit<UpholsteryQuoteState, "quantities">>(
     key: Key,
     value: UpholsteryQuoteState[Key],
   ) {
     setValues((current) => ({ ...current, [key]: value }));
+  }
+
+  function clearCart() {
+    setValues((current) => ({
+      ...current,
+      quantities: { ...quantityDefaults },
+    }));
   }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -168,7 +179,7 @@ export function UpholsteryQuoteBuilder() {
             Build your upholstery quote
           </h2>
           <p className="mt-3 text-base leading-7 text-slate-600">
-            Add the furniture pieces you need cleaned, review the estimate, and
+            Click the furniture pieces you need cleaned, build your cart, and
             send the request directly to VEYNOR for follow-up.
           </p>
         </div>
@@ -197,7 +208,11 @@ export function UpholsteryQuoteBuilder() {
                 .map((item) => (
                   <article
                     key={item.id}
-                    className="overflow-hidden rounded-[1.8rem] border border-slate-200 bg-slate-50"
+                    className={`overflow-hidden rounded-[1.8rem] border transition ${
+                      values.quantities[item.id] > 0
+                        ? "border-sky-600 bg-sky-50 shadow-sm shadow-sky-100"
+                        : "border-slate-200 bg-slate-50"
+                    }`}
                   >
                     <div className="relative aspect-[4/3] border-b border-slate-200 bg-white">
                       <Image
@@ -220,6 +235,19 @@ export function UpholsteryQuoteBuilder() {
                           {item.priceLabel}
                         </p>
                       </div>
+                      <button
+                        type="button"
+                        onClick={() => addToCart(item.id)}
+                        className={`inline-flex w-full items-center justify-center rounded-full px-4 py-3 text-sm font-semibold transition ${
+                          values.quantities[item.id] > 0
+                            ? "bg-slate-950 text-white hover:bg-slate-800"
+                            : "bg-sky-700 text-white hover:bg-sky-600"
+                        }`}
+                      >
+                        {values.quantities[item.id] > 0
+                          ? "Add Another"
+                          : "Add to Cart"}
+                      </button>
                       <QuantityStepper
                         label="Quantity"
                         value={values.quantities[item.id]}
@@ -235,20 +263,38 @@ export function UpholsteryQuoteBuilder() {
 
         <div className="rounded-[1.8rem] border border-slate-200 bg-slate-950 p-6 text-white">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h3 className="text-xl font-semibold">Quote summary</h3>
+            <h3 className="text-xl font-semibold">Your cart</h3>
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-300">
               Estimated total
             </p>
           </div>
+          {selectedItems.length > 0 ? (
+            <button
+              type="button"
+              onClick={clearCart}
+              className="mt-4 inline-flex rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-200 transition hover:bg-white/10"
+            >
+              Clear cart
+            </button>
+          ) : null}
           <div className="mt-5 space-y-3 text-sm leading-6 text-slate-300">
             {selectedItems.length > 0 ? (
               selectedItems.map((item) => (
-                <p key={item.id}>
-                  {item.name} - {values.quantities[item.id]} x {item.priceLabel}
-                </p>
+                <div key={item.id} className="flex items-center justify-between gap-4">
+                  <p>
+                    {item.name} - {values.quantities[item.id]} x {item.priceLabel}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => updateQuantity(item.id, 0)}
+                    className="rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-slate-200 transition hover:bg-white/10"
+                  >
+                    Remove
+                  </button>
+                </div>
               ))
             ) : (
-              <p>Add the pieces you want cleaned to build your quote.</p>
+              <p>Add the pieces you want cleaned to build your cart.</p>
             )}
           </div>
           <p className="mt-5 text-2xl font-semibold tracking-tight text-white">
@@ -259,6 +305,15 @@ export function UpholsteryQuoteBuilder() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
+          <div className="sm:col-span-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-700">
+              Your information
+            </p>
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              After your cart is ready, enter your details and VEYNOR will receive
+              the full request on Gmail.
+            </p>
+          </div>
           <label className="grid gap-2 text-sm font-medium text-slate-700">
             Name
             <input
@@ -333,7 +388,7 @@ export function UpholsteryQuoteBuilder() {
         </p>
       ) : null}
       <p className="mt-4 text-sm text-slate-500">
-        If you are not sure which sectional size fits your piece, text a photo to {site.phoneDisplay}.
+        This form sends your cart and contact details directly to {site.email}. If you are not sure which sectional size fits your piece, text a photo to {site.phoneDisplay}.
       </p>
     </form>
   );
