@@ -3,11 +3,7 @@ import { CtaPanel } from "@/components/cta-panel";
 import { FaqList } from "@/components/faq-list";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
-import {
-  carpetCleaningFaqs,
-  carpetExtraItems,
-  carpetRoomPackages,
-} from "@/lib/data/service-pricing";
+import { carpetCleaningFaqs } from "@/lib/data/service-pricing";
 import { getFaqSchema } from "@/lib/schema";
 import { createMetadata } from "@/lib/site";
 
@@ -35,63 +31,15 @@ export default function CarpetCleaningPage() {
       />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="space-y-6">
-            <article className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/70">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
-                Standard room package pricing
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-slate-500">
-                Use the cart on the right to add the package you want.
-              </p>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                {carpetRoomPackages.map((item) => (
-                  <div
-                    key={item.id}
-                    className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4"
-                  >
-                    <p className="text-base font-semibold text-slate-950">{item.label}</p>
-                    <p className="mt-1 text-sm text-slate-600">${item.price}</p>
-                  </div>
-                ))}
-              </div>
-            </article>
-
-            <article className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/70">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
-                Extra areas
-              </h2>
-              <p className="mt-3 text-sm leading-6 text-slate-500">
-                Add steps, landings, or hallway areas to the same cart before sending the request.
-              </p>
-              <div className="mt-5 grid gap-3">
-                {carpetExtraItems.map((item) => (
-                  <div
-                    key={item.id}
-                    className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4"
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <p className="text-base font-semibold text-slate-950">{item.label}</p>
-                      <p className="text-sm font-semibold text-slate-700">${item.price}</p>
-                    </div>
-                    {item.note ? (
-                      <p className="mt-2 text-sm leading-6 text-slate-500">{item.note}</p>
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            </article>
-
-            <article className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-sm shadow-slate-200/70">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-950">
-                Deep cleaning add-on
-              </h2>
-              <p className="mt-4 text-base leading-7 text-slate-600">
-                Deep cleaning is quoted at $25 to $45 per room or area when the carpet
-                needs more than a routine maintenance clean. This usually applies to
-                heavier soil buildup, darker traffic lanes, or more neglected carpet.
-              </p>
-            </article>
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 max-w-3xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              Choose your rooms, review your cart, and send your request in one place
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">
+              Choose the rooms you want, add extra areas if needed, review the cart,
+              then send your contact details. The request goes directly to VEYNOR on Gmail.
+            </p>
           </div>
 
           <CarpetQuoteBuilder />

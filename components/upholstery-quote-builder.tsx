@@ -208,7 +208,7 @@ export function UpholsteryQuoteBuilder() {
                 .map((item) => (
                   <article
                     key={item.id}
-                    className={`overflow-hidden rounded-[1.8rem] border transition ${
+                    className={`flex h-full flex-col overflow-hidden rounded-[1.8rem] border transition ${
                       values.quantities[item.id] > 0
                         ? "border-sky-600 bg-sky-50 shadow-sm shadow-sky-100"
                         : "border-slate-200 bg-slate-50"
@@ -223,7 +223,7 @@ export function UpholsteryQuoteBuilder() {
                         className="object-cover"
                       />
                     </div>
-                    <div className="space-y-4 p-5">
+                    <div className="flex flex-1 flex-col p-5">
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <h4 className="text-lg font-semibold text-slate-950">{item.name}</h4>
@@ -235,25 +235,35 @@ export function UpholsteryQuoteBuilder() {
                           {item.priceLabel}
                         </p>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => addToCart(item.id)}
-                        className={`inline-flex w-full items-center justify-center rounded-full px-4 py-3 text-sm font-semibold transition ${
-                          values.quantities[item.id] > 0
-                            ? "bg-slate-950 text-white hover:bg-slate-800"
-                            : "bg-sky-700 text-white hover:bg-sky-600"
-                        }`}
-                      >
-                        {values.quantities[item.id] > 0
-                          ? "Add Another"
-                          : "Add to Cart"}
-                      </button>
-                      <QuantityStepper
-                        label="Quantity"
-                        value={values.quantities[item.id]}
-                        onChange={(value) => updateQuantity(item.id, value)}
-                        max={10}
-                      />
+                      <div className="mt-auto space-y-4 pt-5">
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-sm font-semibold text-slate-600">
+                            {values.quantities[item.id] > 0 ? "In cart" : "Not added"}
+                          </span>
+                          <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-900">
+                            {values.quantities[item.id]}
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => addToCart(item.id)}
+                          className={`inline-flex w-full items-center justify-center rounded-full px-4 py-3 text-sm font-semibold transition ${
+                            values.quantities[item.id] > 0
+                              ? "bg-slate-950 text-white hover:bg-slate-800"
+                              : "bg-sky-700 text-white hover:bg-sky-600"
+                          }`}
+                        >
+                          {values.quantities[item.id] > 0
+                            ? "Add Another"
+                            : "Add to Cart"}
+                        </button>
+                        <QuantityStepper
+                          label="Quantity"
+                          value={values.quantities[item.id]}
+                          onChange={(value) => updateQuantity(item.id, value)}
+                          max={10}
+                        />
+                      </div>
                     </div>
                   </article>
                 ))}
