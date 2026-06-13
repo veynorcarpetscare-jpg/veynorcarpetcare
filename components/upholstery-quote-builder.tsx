@@ -321,7 +321,7 @@ export function UpholsteryQuoteBuilder() {
             </p>
             <p className="mt-2 text-sm leading-6 text-slate-500">
               After your cart is ready, enter your details and VEYNOR will receive
-              the full request on Gmail.
+              the full request directly.
             </p>
           </div>
           <label className="grid gap-2 text-sm font-medium text-slate-700">
@@ -398,7 +398,7 @@ export function UpholsteryQuoteBuilder() {
         </p>
       ) : null}
       <p className="mt-4 text-sm text-slate-500">
-        This form sends your cart and contact details directly to {site.email}. If you are not sure which sectional size fits your piece, text a photo to {site.phoneDisplay}.
+        This form sends your cart and contact details directly to VEYNOR. If you are not sure which sectional size fits your piece, text a photo to {site.phoneDisplay}.
       </p>
     </form>
   );

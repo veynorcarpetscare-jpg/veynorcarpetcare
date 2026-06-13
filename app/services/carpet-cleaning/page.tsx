@@ -38,7 +38,7 @@ export default function CarpetCleaningPage() {
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
               Choose the rooms you want, add extra areas if needed, review the cart,
-              then send your contact details. The request goes directly to VEYNOR on Gmail.
+              then send your contact details. The request goes directly to VEYNOR.
             </p>
           </div>
 

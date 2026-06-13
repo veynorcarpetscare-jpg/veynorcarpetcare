@@ -5,6 +5,10 @@
 - Confirm the production domain is `veynorcarpetcare.com`.
 - Confirm the phone number is `(510) 516-6677`.
 - Confirm the email is `veynor.carpetscare@gmail.com`.
+- Confirm Cloudflare Pages environment variables are set:
+  - `TELEGRAM_BOT_TOKEN`
+  - `TELEGRAM_CHAT_ID`
+  - optional: `TELEGRAM_MESSAGE_THREAD_ID`
 - Replace gallery placeholder images if real project photos are ready.
 - Replace review copy with approved customer reviews if available.
 - Run:
@@ -18,6 +22,7 @@
 - Build command: `npm run build`
 - Build output directory: `out`
 - Node.js version: `22`
+- Pages Functions directory present: `functions/`
 
 ## DNS And Domain
 
@@ -29,6 +34,7 @@
 
 - Check homepage CTA buttons on desktop and mobile.
 - Check contact page call, SMS, and email links.
+- Check that website forms send leads into Telegram.
 - Check all 12 city pages for title, description, and local FAQ accuracy.
 - Check service area coverage against actual business service boundaries.
 - Check social share preview image.
@@ -48,5 +54,8 @@
   - `tel:+15105166677`
   - `sms:+15105166677`
   - `mailto:veynor.carpetscare@gmail.com`
+  - contact form submission
+  - carpet quote-builder submission
+  - upholstery quote-builder submission
 - Crawl the live site for broken links.
 - Request indexing for the homepage and priority city pages in Google Search Console.

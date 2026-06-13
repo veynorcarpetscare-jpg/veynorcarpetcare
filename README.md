@@ -9,6 +9,7 @@ Built with:
 - Tailwind CSS 4
 - App Router
 - Static export for Cloudflare Pages compatibility
+- Cloudflare Pages Functions for secure Telegram lead delivery
 
 ## Business Profile
 
@@ -63,6 +64,7 @@ Built with:
 - `components/`: reusable UI sections and form logic
 - `lib/data/`: services, reviews, FAQs, gallery, service areas, city page content
 - `lib/schema.ts`: JSON-LD generators
+- `functions/api/`: Cloudflare Pages Functions for server-side lead handling
 - `public/gallery/`: replaceable before-and-after placeholder assets
 - `public/og-cover.png`: social sharing image
 
@@ -128,7 +130,7 @@ npm run preview
 
 ## Cloudflare Pages Deployment
 
-This project is configured for static export so it can be deployed directly on Cloudflare Pages.
+This project is configured for static export and Cloudflare Pages Functions.
 
 Recommended Cloudflare Pages settings:
 
@@ -148,7 +150,30 @@ Deployment flow:
 
 ## Environment Variables
 
-No environment variables are required for the current build.
+Cloudflare Pages environment variables required for Telegram delivery:
+
+- `TELEGRAM_BOT_TOKEN`
+- `TELEGRAM_CHAT_ID`
+
+Optional if you want messages sent into a specific Telegram topic:
+
+- `TELEGRAM_MESSAGE_THREAD_ID`
+
+## Telegram Setup
+
+1. Create a Telegram bot with `@BotFather`.
+2. Copy the bot token that BotFather gives you.
+3. Add the bot to the Telegram chat or group where you want new leads to arrive.
+4. Send at least one message in that chat after the bot is added.
+5. Open:
+
+```text
+https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
+```
+
+6. Find the target `chat.id` in the response and use that value as `TELEGRAM_CHAT_ID`.
+7. If you are posting into a Telegram forum topic, also find `message_thread_id` from a topic message and set `TELEGRAM_MESSAGE_THREAD_ID`.
+8. Add the values in Cloudflare Pages project settings, then redeploy.
 
 ## Content Maintenance
 
@@ -175,7 +200,9 @@ Keep the same file names for a quick swap, or update the file paths in `lib/data
 
 ## Contact Form Behavior
 
-The contact form submits with AJAX to the activated FormSubmit endpoint, which forwards the request without opening the visitor's mail app.
+Website forms post to a Cloudflare Pages Function at `/api/lead`, which sends the request to Telegram through the Telegram Bot API without opening the visitor's mail app.
+
+If Telegram variables are not configured yet, the site falls back to the existing FormSubmit email delivery so leads are not lost during setup.
 
 Primary conversion paths remain:
 

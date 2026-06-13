@@ -38,7 +38,7 @@ export default function UpholsteryCleaningPage() {
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
               Add the furniture pieces you want, review the cart, then send your
-              details. The request goes directly to VEYNOR on Gmail.
+              details. The request goes directly to VEYNOR.
             </p>
           </div>
           <UpholsteryQuoteBuilder />

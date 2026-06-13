@@ -38,7 +38,7 @@ export default function AboutPage() {
               <p>
                 The company aims to stay local, responsive, and straightforward. You can
                 call, text for a free quote, or send the job details through the contact
-                form if email is more convenient.
+                form if typing everything out is more convenient.
               </p>
               <p>
                 Walnut Creek is the primary market, with headquarters listed in Concord and

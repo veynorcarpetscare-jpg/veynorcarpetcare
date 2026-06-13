@@ -409,7 +409,7 @@ export function CarpetQuoteBuilder() {
             </p>
             <p className="mt-2 text-sm leading-6 text-slate-500">
               After your cart is ready, enter your contact info and the full request
-              will be sent to VEYNOR on Gmail.
+              will be sent directly to VEYNOR.
             </p>
           </div>
           <label className="grid gap-2 text-sm font-medium text-slate-700">
@@ -486,7 +486,7 @@ export function CarpetQuoteBuilder() {
         </p>
       ) : null}
       <p className="mt-4 text-sm text-slate-500">
-        This form sends your cart and contact details directly to {site.email}. For a faster answer, call or text {site.phoneDisplay}.
+        This form sends your cart and contact details directly to VEYNOR. For a faster answer, call or text {site.phoneDisplay}.
       </p>
     </form>
   );

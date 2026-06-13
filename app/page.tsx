@@ -337,7 +337,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Contact VEYNOR"
               title="Call or text for the fastest quote, or send the details below."
-              description="Phone calls and text messages are the fastest path to a quote. If you prefer email, the contact form sends your project details directly to VEYNOR without making you leave the site."
+              description="Phone calls and text messages are the fastest path to a quote. If you prefer to write out the project details, the contact form sends them directly to VEYNOR without making you leave the site."
             />
             <div className="mt-8 grid gap-4">
               {[
