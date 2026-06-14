@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { BeforeAfterCard } from "@/components/before-after-card";
 import { CallToActionGroup } from "@/components/call-to-action-group";
 import { ContactForm } from "@/components/contact-form";
@@ -76,7 +78,30 @@ export default function Home() {
           </div>
 
           <div className="rounded-[2rem] border border-white/10 bg-white/6 p-6 shadow-[0_20px_70px_rgba(2,6,23,0.35)] backdrop-blur-sm sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10">
+              <div className="relative aspect-[5/4]">
+                <Image
+                  src="/home/veynor-hero-team.jpg"
+                  alt="VEYNOR carpet and upholstery cleaning team standing with professional equipment in a clean living room."
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/25 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-200">
+                    Local cleaning service
+                  </p>
+                  <p className="mt-2 max-w-md text-sm leading-6 text-slate-100">
+                    Carpet, upholstery, pet odor, and restorative cleaning with
+                    equipment ready for real East Bay homes.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.22em] text-sky-300">
               Why customers call VEYNOR
             </p>
             <div className="mt-6 grid gap-4">
