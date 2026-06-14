@@ -81,7 +81,7 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10">
               <div className="relative aspect-[5/4]">
                 <Image
-                  src="/home/veynor-hero-team.jpg"
+                  src="/home/veynor-hero-team-v2.jpg"
                   alt="VEYNOR carpet and upholstery cleaning team standing with professional equipment in a clean living room."
                   fill
                   priority
