@@ -120,7 +120,7 @@ export function ReferralProgramForm() {
           </h2>
           <p className="mt-3 text-base leading-7 text-slate-600">
             Enter your information and the referred customer&apos;s information so
-            VEYNOR can match the job correctly and confirm eligibility.
+            VEYNOR can match the job correctly and confirm the right referral payout tier.
           </p>
         </div>
 
@@ -270,7 +270,8 @@ export function ReferralProgramForm() {
         </p>
       ) : null}
       <p className="mt-4 text-sm text-slate-500">
-        Payouts are issued 7 to 14 days after the completed job once the referral qualifies.
+        Referral payouts are usually sent 7 to 14 days after the completed job. Jobs up to
+        $399 earn $20, and jobs of $400 or more earn $50.
       </p>
     </form>
   );

@@ -211,7 +211,7 @@ export const upholsteryCleaningFaqs: FAQItem[] = [
 ];
 
 export const referralProgramRules = [
-  "A $20 referral reward is paid when the referred customer completes a cleaning job totaling $350 or more.",
+  "Referral rewards are based on the final completed job total: jobs up to $399 earn $20, and jobs of $400 or more earn $50.",
   "The referral should be submitted before the job is completed so VEYNOR can match the customer to the person who referred them.",
   "The referred customer should be a new customer, not an existing open quote or past booking already in progress.",
   "Payouts are issued 7 to 14 days after the completed job.",
@@ -222,12 +222,12 @@ export const referralProgramFaqs: FAQItem[] = [
   {
     question: "When does the referral reward qualify?",
     answer:
-      "The referral reward qualifies after the referred customer completes a new job that meets the program requirements, including the current minimum job total.",
+      "The referral reward qualifies after the referred customer completes a new job and VEYNOR confirms the referral details match the completed booking.",
   },
   {
     question: "How much is the referral reward?",
     answer:
-      "The current referral reward is $20 for a qualifying completed job of $350 or more.",
+      "Completed jobs with a final total up to $399 earn a $20 referral reward. Completed jobs with a final total of $400 or more earn a $50 referral reward.",
   },
   {
     question: "When are referral payouts sent?",

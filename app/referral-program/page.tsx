@@ -13,7 +13,7 @@ import { createMetadata } from "@/lib/site";
 export const metadata = createMetadata({
   title: "Referral Program",
   description:
-    "Refer a new VEYNOR customer and submit both sets of contact details online. Qualifying completed jobs of $350 or more earn a $20 referral reward.",
+    "Refer a new VEYNOR customer and earn up to $50 after the completed job. Submit both sets of contact details online so the referral can be tracked properly.",
   path: "/referral-program",
 });
 
@@ -24,7 +24,7 @@ const referralSteps = [
   },
   {
     title: "Customer completes a qualifying job",
-    body: "The referred customer should be a new customer and the completed cleaning job should total at least $350.",
+    body: "When the referred customer completes a new job, you earn $20 on totals up to $399 or $50 on totals of $400 and above.",
   },
   {
     title: "Reward is sent after verification",
@@ -43,8 +43,8 @@ export default function ReferralProgramPage() {
           { name: "Referral Program", href: "/referral-program" },
         ]}
         eyebrow="Referral Program"
-        title="Send a referral online and earn $20 on qualifying completed jobs."
-        description="If you refer a new customer to VEYNOR Carpet & Upholstery Care, you can submit both sets of details here so the referral can be tracked properly from the beginning."
+        title="Refer a friend and earn up to $50 when their job is completed."
+        description="Send us your info and your friend's info here so VEYNOR Carpet & Upholstery Care can track the referral from the start. Completed jobs up to $399 earn a $20 referral reward, and completed jobs of $400 or more earn $50."
       />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
