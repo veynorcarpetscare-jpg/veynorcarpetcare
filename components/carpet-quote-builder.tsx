@@ -80,7 +80,7 @@ export function CarpetQuoteBuilder() {
       ? `Hallway / Walk-In Closet: ${values.hallways} - $${values.hallways * hallwayPrice}`
       : null,
     values.deepCleaningRequested
-      ? "Deep cleaning add-on requested - quote at $25-$45 per room or area depending on soil level."
+      ? "🔥 Deep cleaning add-on requested - quote at $25-$45 per room or area depending on soil level."
       : null,
   ].filter((line): line is string => Boolean(line));
 
@@ -353,6 +353,9 @@ export function CarpetQuoteBuilder() {
         >
           <span>
             <span className="block text-base font-semibold text-slate-950">
+              <span aria-hidden="true" className="mr-2 inline-flex">
+                🔥
+              </span>
               Deep cleaning add-on
             </span>
             <span className="mt-2 block text-sm leading-6 text-slate-600">
